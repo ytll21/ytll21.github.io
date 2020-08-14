@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>IWS</title>
+  
+  <subtitle>Lovely Windy Club</subtitle>
+  <link href="http://lovelywindy.club/atom.xml" rel="self"/>
+  
+  <link href="http://lovelywindy.club/"/>
+  <updated>2020-08-14T07:23:57.265Z</updated>
+  <id>http://lovelywindy.club/</id>
+  
+  <author>
+    <name>Kevin Gu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>项目管理和「人月神话」</title>
+    <link href="http://lovelywindy.club/2020/08/14/xiang-mu-guan-li-he-ren-yue-shen-hua/"/>
+    <id>http://lovelywindy.club/2020/08/14/xiang-mu-guan-li-he-ren-yue-shen-hua/</id>
+    <published>2020-08-14T06:44:46.000Z</published>
+    <updated>2020-08-14T07:23:57.265Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;项目管理和「人月神话」&quot;&gt;&lt;a href=&quot;#项目管理和「人月神话」&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="管理" scheme="http://lovelywindy.club/categories/%E7%AE%A1%E7%90%86/"/>
+    
+    
+    <category term="管理" scheme="http://lovelywindy.club/tags/%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="读书" scheme="http://lovelywindy.club/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+</feed>

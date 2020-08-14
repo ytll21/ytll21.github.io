@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>项目管理和「人月神话」</title>
+      <link href="/2020/08/14/xiang-mu-guan-li-he-ren-yue-shen-hua/"/>
+      <url>/2020/08/14/xiang-mu-guan-li-he-ren-yue-shen-hua/</url>
+      
+        <content type="html"><![CDATA[<h1 id="项目管理和「人月神话」"><a href="#项目管理和「人月神话」" class="headerlink" title="项目管理和「人月神话」"></a>项目管理和「人月神话」</h1><p>###当我们讨论要开发一个系统的时候，我们讨论的是什么？<br><img src="http://cdn.bb-hire.cn/15973075442973.jpg"></p><h3 id="为什么我们通常会低估开发所需要的时间"><a href="#为什么我们通常会低估开发所需要的时间" class="headerlink" title="为什么我们通常会低估开发所需要的时间"></a>为什么我们通常会低估开发所需要的时间</h3><p><img src="http://cdn.bb-hire.cn/15973090535586.jpg"><br><img src="http://cdn.bb-hire.cn/15973091292927.jpg"></p><h3 id="我们为什么要强调单元测试"><a href="#我们为什么要强调单元测试" class="headerlink" title="我们为什么要强调单元测试"></a>我们为什么要强调单元测试</h3><p><img src="http://cdn.bb-hire.cn/15973093917523.jpg"><br><img src="http://cdn.bb-hire.cn/15973094021450.jpg"></p><h3 id="当项目延误的时候，我们应该怎么办？"><a href="#当项目延误的时候，我们应该怎么办？" class="headerlink" title="当项目延误的时候，我们应该怎么办？"></a>当项目延误的时候，我们应该怎么办？</h3><p><img src="http://cdn.bb-hire.cn/15973100855700.jpg"></p><ol><li>增加人手</li><li>调整计划</li><li>削减任务</li></ol><h3 id="为什么我们需要项目周会？"><a href="#为什么我们需要项目周会？" class="headerlink" title="为什么我们需要项目周会？"></a>为什么我们需要项目周会？</h3><p><img src="http://cdn.bb-hire.cn/15973109771715.jpg"></p><h3 id="开项目会议的时候，我们讨论什么？"><a href="#开项目会议的时候，我们讨论什么？" class="headerlink" title="开项目会议的时候，我们讨论什么？"></a>开项目会议的时候，我们讨论什么？</h3><ol><li>每个人进度的检查与调整</li><li>分析每个人遇到的困难，与分享成功经验</li><li>对业务的不断梳理和加深理解</li></ol><h3 id="文档的重要性"><a href="#文档的重要性" class="headerlink" title="文档的重要性"></a>文档的重要性</h3><p><img src="http://cdn.bb-hire.cn/15973115367447.jpg"><br><img src="http://cdn.bb-hire.cn/15973115477814.jpg"></p><blockquote><p>开发计划和设计文档不是一次性的，而是需要一直维护的</p></blockquote><h3 id="人月估算和开发计划的区别"><a href="#人月估算和开发计划的区别" class="headerlink" title="人月估算和开发计划的区别"></a>人月估算和开发计划的区别</h3><p>对象不同。<br>人月估算是提供给上级的管理人员，用于掌握项目的资源使用量和项目最终上线时间。<br>开发计划是提供给具体的开发人员，用于开发人员确认自己的工作内容。<br>开发计划需要根据每个人的开发进度，做弹性调整，而不是一成不变。</p><h3 id="防微杜渐"><a href="#防微杜渐" class="headerlink" title="防微杜渐"></a>防微杜渐</h3><p><img src="http://cdn.bb-hire.cn/15973146225039.jpg"></p><h3 id="拥抱变化"><a href="#拥抱变化" class="headerlink" title="拥抱变化"></a>拥抱变化</h3><p>以前的开发<br><img src="http://cdn.bb-hire.cn/15973148796592.jpg"><br><img src="http://cdn.bb-hire.cn/15973150680480.jpg"><br><img src="http://cdn.bb-hire.cn/15973150809413.jpg"><br><img src="http://cdn.bb-hire.cn/15973150508232.jpg"><br>现在的开发<br><img src="http://cdn.bb-hire.cn/15973150140260.jpg"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 管理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 管理 </tag>
+            
+            <tag> 读书 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
