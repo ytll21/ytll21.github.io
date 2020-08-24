@@ -496,24 +496,24 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="解读「Java-By-Comparison-Become-a-Java-Craftsman-in-70-Examples」"><a href="#解读「Java-By-Comparison-Become-a-Java-Craftsman-in-70-Examples」" class="headerlink" title="解读「Java By Comparison - Become a Java Craftsman in 70 Examples」"></a>解读「Java By Comparison - Become a Java Craftsman in 70 Examples」</h1><h3 id="提高代码可读性"><a href="#提高代码可读性" class="headerlink" title="提高代码可读性"></a>提高代码可读性</h3><h5 id="避免反向思考"><a href="#避免反向思考" class="headerlink" title="避免反向思考"></a>避免反向思考</h5><pre><code>class Laboratory &amp;#123; 
+                <h1 id="解读「Java-By-Comparison-Become-a-Java-Craftsman-in-70-Examples」"><a href="#解读「Java-By-Comparison-Become-a-Java-Craftsman-in-70-Examples」" class="headerlink" title="解读「Java By Comparison - Become a Java Craftsman in 70 Examples」"></a>解读「Java By Comparison - Become a Java Craftsman in 70 Examples」</h1><h3 id="提高代码可读性"><a href="#提高代码可读性" class="headerlink" title="提高代码可读性"></a>提高代码可读性</h3><h5 id="避免反向思考"><a href="#避免反向思考" class="headerlink" title="避免反向思考"></a>避免反向思考</h5><pre><code>class Laboratory｛
     Microscope microscope;
-    Result analyze(Sample sample) &amp;#123;
-        if (microscope.isInorganic(sample)) &amp;#123;
+    Result analyze(Sample sample)  &amp;#123; 
+        if (microscope.isInorganic(sample)) &amp;#123; 
             return Result.INORGANIC; 
-        &amp;#125; else &amp;#123;
+        &amp;#125; else &amp;#123; 
             return analyzeOrganic(sample); 
-        &amp;#125;
-    &amp;#125;
-
-    private Result analyzeOrganic(Sample sample) &amp;#123;
-        if (!microscope.isHumanoid(sample)) &amp;#123;
-            return Result.ALIEN; 
-        &amp;#125; else &amp;#123;
-            return Result.HUMANOID; 
-        &amp;#125;
+        &amp;#125; 
     &amp;#125; 
-&amp;#125;</code></pre>
+
+    private Result analyzeOrganic(Sample sample) &amp;#123; 
+        if (!microscope.isHumanoid(sample)) &amp;#123; 
+            return Result.ALIEN; 
+        &amp;#125; else &amp;#123; 
+            return Result.HUMANOID; 
+        &amp;#125; 
+    &amp;#125;  
+｝</code></pre>
 <p>改造后</p>
 <pre><code>class Laboratory { 
     Microscope microscope;
