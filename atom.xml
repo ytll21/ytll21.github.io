@@ -6,7 +6,7 @@
   <link href="http://lovelywindy.club/atom.xml" rel="self"/>
   
   <link href="http://lovelywindy.club/"/>
-  <updated>2020-08-14T07:24:53.692Z</updated>
+  <updated>2020-08-24T01:41:54.676Z</updated>
   <id>http://lovelywindy.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解读「Java By Comparison - Become a Java Craftsman in 70 Examples」</title>
+    <link href="http://lovelywindy.club/2020/08/24/jie-du-java-by-comparison-become-a-java-craftsman-in-70-examples/"/>
+    <id>http://lovelywindy.club/2020/08/24/jie-du-java-by-comparison-become-a-java-craftsman-in-70-examples/</id>
+    <published>2020-08-24T01:35:18.000Z</published>
+    <updated>2020-08-24T01:41:54.676Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;解读「Java-By-Comparison-Become-a-Java-Craftsman-in-70-Examples」&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="http://lovelywindy.club/categories/Java/"/>
+    
+    
+    <category term="读书" scheme="http://lovelywindy.club/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="Java" scheme="http://lovelywindy.club/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>项目管理和「人月神话」</title>
