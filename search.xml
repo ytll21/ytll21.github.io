@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>解构再组合 - 「你不知道的JavaScript」（一）</title>
+      <link href="/2020/09/04/jie-gou-zai-zu-he-ni-bu-zhi-dao-de-javascript-yi/"/>
+      <url>/2020/09/04/jie-gou-zai-zu-he-ni-bu-zhi-dao-de-javascript-yi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="解构再组合-「你不知道的JavaScript」（一）"><a href="#解构再组合-「你不知道的JavaScript」（一）" class="headerlink" title="解构再组合 - 「你不知道的JavaScript」（一）"></a>解构再组合 - 「你不知道的JavaScript」（一）</h1><h2 id="作用域和闭包"><a href="#作用域和闭包" class="headerlink" title="作用域和闭包"></a>作用域和闭包</h2><h3 id="不要用eval"><a href="#不要用eval" class="headerlink" title="不要用eval"></a>不要用eval</h3><p>考虑如下代码:</p><pre><code>function foo(str, a) ｛     eval( str );    console.log( a, b );｝var b = 2;foo( "var b = 3;", 1 );</code></pre><p>想30秒，你认为会输出什么？</p><p>是1, 3。也就是eval导致了原本在外部定义的变量b，被eval动态生成的局部变量b给替换了。</p><p>所以如果eval的内容能够被最终用户修改的话，那这会带来不可控的后果。</p><p>最后，在程序中动态生成代码的使用场景非常罕见，因为它所带来的好处无法抵消性能上的损失。</p><h3 id="最小暴露原则"><a href="#最小暴露原则" class="headerlink" title="最小暴露原则"></a>最小暴露原则</h3><p>考虑如下代码：</p><pre><code>function doSomething(a) ｛    b = a + doSomethingElse( a * 2 );    console.log( b * 3 ); ｝function doSomethingElse(a) ｛     return a - 1;｝var b;doSomething( 2 ); // 15</code></pre><p>你觉得它的问题在哪里？</p><p>答案是变量b被无意义的暴露在了外部环境，如果外部代码无意识的修改了b的值，就会影响到doSomething函数的正确输出。下面的代码就演示了如何避免这种可能：</p><pre><code>function doSomething(a) ｛     function doSomethingElse(a) ｛        return a - 1;     ｝    var b;    b = a + doSomethingElse( a * 2 );    console.log( b * 3 ); ｝doSomething( 2 ); // 15</code></pre><h3 id="在使用变量前，一定要声明该变量"><a href="#在使用变量前，一定要声明该变量" class="headerlink" title="在使用变量前，一定要声明该变量"></a>在使用变量前，一定要声明该变量</h3><p>考虑如下代码：</p><pre><code>function foo() ｛     function bar(a) ｛        i = 3;        console.log( a + i );     ｝    for (var i=0; i&lt;10; i++) ｛        bar( i * 2 );    ｝ ｝foo();</code></pre><p>执行上面这段代码，会发生什么事情？是可怕的无限循环！因为 i = 3修改了i的值，导致循环无法正确结束。</p><p>所以要避免这种情况发生，就要记得在使用局部变量前，一定要声明它，如下所示：</p><pre><code>function foo() ｛     function bar(a) ｛        var i = 3;        console.log( a + i );     ｝    for (var i=0; i&lt;10; i++) ｛        bar( i * 2 );    ｝ ｝foo();</code></pre><h3 id="匿名和具名函数的区别"><a href="#匿名和具名函数的区别" class="headerlink" title="匿名和具名函数的区别"></a>匿名和具名函数的区别</h3><p>看如下两段代码的区别在哪里：</p><pre><code>setTimeout( function() ｛     console.log("I waited 1 second!");｝, 1000 );setTimeout( function timeoutHandler() ｛     console.log( "I waited 1 second!" );｝, 1000 );</code></pre><p>考虑匿名函数的缺点：</p><ol><li>匿名函数在栈追踪中不会显示出有意义的函数名，使得调试很困难。</li><li>如果没有函数名，当函数需要引用自身时只能使用已经过期的arguments.callee引用， 比如在递归中。另一个函数需要引用自身的例子，是在事件触发后事件监听器需要解绑 自身。</li><li>匿名函数省略了对于代码可读性/可理解性很重要的函数名。一个描述性的名称可以让 代码不言自明。</li></ol><p>解决方案：给函数表达式指定一个函数名可以有效解决以上问题。始终给函数表达式命名是一个最佳实践</p><h3 id="用let而不是var"><a href="#用let而不是var" class="headerlink" title="用let而不是var"></a>用let而不是var</h3><p>考虑如下代码：</p><pre><code>var foo = true;if (foo) ｛    var bar = foo * 2;    bar = something( bar );     console.log( bar );｝</code></pre><p>当在if的代码块中定义了变量bar，bar随后可以在if语句块外也能够被调用，这样就污染了整个函数环境，而这是我们不想看到的。而用了let就可以避免这一点。</p><pre><code>var foo = true;if (foo) ｛    let bar = foo * 2;    bar = something( bar );     console.log( bar );｝console.log( bar ); // ReferenceError</code></pre><h3 id="理解提升"><a href="#理解提升" class="headerlink" title="理解提升"></a>理解提升</h3><p>考虑如下代码：</p><pre><code>a = 2;var a; console.log( a );</code></pre><p>编译器对声明提升后，实际执行的代码：</p><pre><code>var a;a = 2; console.log( a );</code></pre><p>试着说如下代码执行结果吧：</p><pre><code>console.log( a ); var a = 2;</code></pre><p>它的实际执行代码如下：</p><pre><code>var a; console.log( a ); a = 2;</code></pre><p>所以对JS而言，要记住：先有蛋(声明)，后有鸡(赋值)。</p><p>我们习惯将var a = 2;看作一个声明，而实际上JavaScript引擎并不这么认为。它将var a<br>和 a = 2 当作两个单独的声明，第一个是编译阶段的任务，而第二个则是执行阶段的任务。</p><p>这意味着无论作用域中的声明出现在什么地方，都将在代码本身被执行前首先进行处理。 可以将这个过程形象地想象成所有的声明(变量和函数)都会被“移动”到各自作用域的 最顶端，这个过程被称为提升。</p><h3 id="理解闭包"><a href="#理解闭包" class="headerlink" title="理解闭包"></a>理解闭包</h3><p>考虑如下代码的最终输出是什么：</p><pre><code>for (var i=1; i&lt;=5; i++) ｛     setTimeout( function timer() ｛        console.log( i );     ｝, i*1000 );｝</code></pre><p>每秒输出6，而不是设想中的每秒输出1、2…5，因为闭包指向的都是同一个共有变量。想一下，代码要怎么改？</p><pre><code>for (var i=1; i&lt;=5; i++) ｛     (function(result) ｛        setTimeout( function timer() ｛            console.log( result );         ｝, result*1000 );    ｝)(i);｝</code></pre><p>答案是利用IIFE技术，把i作为函数的参数传递，从而生成一个新的作用域，把每次迭代的i的值封闭在新的作用域内。</p><p>更好的做法，利用let：</p><pre><code>for (let i=1; i&lt;=5; i++) ｛     setTimeout( function timer() ｛        console.log( i );     ｝, i*1000 );｝</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 读书 </tag>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解读「Java By Comparison - Become a Java Craftsman in 70 Examples」</title>
       <link href="/2020/08/24/jie-du-java-by-comparison-become-a-java-craftsman-in-70-examples/"/>
       <url>/2020/08/24/jie-du-java-by-comparison-become-a-java-craftsman-in-70-examples/</url>

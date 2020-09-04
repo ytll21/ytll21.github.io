@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="项目管理和「人月神话」, IWS">
+    <meta name="keywords" content="解构再组合 - 「你不知道的JavaScript」（一）, IWS">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>项目管理和「人月神话」 | IWS</title>
+    <title>解构再组合 - 「你不知道的JavaScript」（一） | IWS</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://cdn.bb-hire.cn/15973897922330.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://cdn.bb-hire.cn/15991970712619.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">项目管理和「人月神话」</h1>
+                    <h1 class="description center-align post-title">解构再组合 - 「你不知道的JavaScript」（一）</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%A1%E7%90%86/">
-                                <span class="chip bg-color">管理</span>
-                            </a>
-                        
                             <a href="/tags/%E8%AF%BB%E4%B9%A6/">
                                 <span class="chip bg-color">读书</span>
+                            </a>
+                        
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
                             </a>
                         
                     </div>
@@ -447,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%A1%E7%90%86/" class="post-category">
-                                管理
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -460,28 +460,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-08-14
+                    2020-09-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-08-14
+                    2020-09-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    365
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    5 Min
                 </div>
                 
 
@@ -496,28 +496,148 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="项目管理和「人月神话」"><a href="#项目管理和「人月神话」" class="headerlink" title="项目管理和「人月神话」"></a>项目管理和「人月神话」</h1><h3 id="当我们讨论要开发一个系统的时候，我们讨论的是什么？"><a href="#当我们讨论要开发一个系统的时候，我们讨论的是什么？" class="headerlink" title="当我们讨论要开发一个系统的时候，我们讨论的是什么？"></a>当我们讨论要开发一个系统的时候，我们讨论的是什么？</h3><p><img src="http://cdn.bb-hire.cn/15973075442973.jpg"></p>
-<h3 id="为什么我们通常会低估开发所需要的时间"><a href="#为什么我们通常会低估开发所需要的时间" class="headerlink" title="为什么我们通常会低估开发所需要的时间"></a>为什么我们通常会低估开发所需要的时间</h3><p><img src="http://cdn.bb-hire.cn/15973090535586.jpg"><br><img src="http://cdn.bb-hire.cn/15973091292927.jpg"></p>
-<h3 id="我们为什么要强调单元测试"><a href="#我们为什么要强调单元测试" class="headerlink" title="我们为什么要强调单元测试"></a>我们为什么要强调单元测试</h3><p><img src="http://cdn.bb-hire.cn/15973093917523.jpg"><br><img src="http://cdn.bb-hire.cn/15973094021450.jpg"></p>
-<h3 id="当项目延误的时候，我们应该怎么办？"><a href="#当项目延误的时候，我们应该怎么办？" class="headerlink" title="当项目延误的时候，我们应该怎么办？"></a>当项目延误的时候，我们应该怎么办？</h3><p><img src="http://cdn.bb-hire.cn/15973100855700.jpg"></p>
+                <h1 id="解构再组合-「你不知道的JavaScript」（一）"><a href="#解构再组合-「你不知道的JavaScript」（一）" class="headerlink" title="解构再组合 - 「你不知道的JavaScript」（一）"></a>解构再组合 - 「你不知道的JavaScript」（一）</h1><h2 id="作用域和闭包"><a href="#作用域和闭包" class="headerlink" title="作用域和闭包"></a>作用域和闭包</h2><h3 id="不要用eval"><a href="#不要用eval" class="headerlink" title="不要用eval"></a>不要用eval</h3><p>考虑如下代码:</p>
+<pre><code>function foo(str, a) ｛ 
+    eval( str );
+    console.log( a, b );
+｝
+
+var b = 2;
+foo( "var b = 3;", 1 );</code></pre>
+<p>想30秒，你认为会输出什么？</p>
+<p>是1, 3。也就是eval导致了原本在外部定义的变量b，被eval动态生成的局部变量b给替换了。</p>
+<p>所以如果eval的内容能够被最终用户修改的话，那这会带来不可控的后果。</p>
+<p>最后，在程序中动态生成代码的使用场景非常罕见，因为它所带来的好处无法抵消性能上的损失。</p>
+<h3 id="最小暴露原则"><a href="#最小暴露原则" class="headerlink" title="最小暴露原则"></a>最小暴露原则</h3><p>考虑如下代码：</p>
+<pre><code>function doSomething(a) ｛
+    b = a + doSomethingElse( a * 2 );
+    console.log( b * 3 ); 
+｝
+
+function doSomethingElse(a) ｛ 
+    return a - 1;
+｝
+
+var b;
+doSomething( 2 ); // 15</code></pre>
+<p>你觉得它的问题在哪里？</p>
+<p>答案是变量b被无意义的暴露在了外部环境，如果外部代码无意识的修改了b的值，就会影响到doSomething函数的正确输出。下面的代码就演示了如何避免这种可能：</p>
+<pre><code>function doSomething(a) ｛ 
+    function doSomethingElse(a) ｛
+        return a - 1; 
+    ｝
+
+    var b;
+
+    b = a + doSomethingElse( a * 2 );
+    console.log( b * 3 ); 
+｝
+
+doSomething( 2 ); // 15</code></pre>
+<h3 id="在使用变量前，一定要声明该变量"><a href="#在使用变量前，一定要声明该变量" class="headerlink" title="在使用变量前，一定要声明该变量"></a>在使用变量前，一定要声明该变量</h3><p>考虑如下代码：</p>
+<pre><code>function foo() ｛ 
+    function bar(a) ｛
+        i = 3;
+        console.log( a + i ); 
+    ｝
+
+    for (var i=0; i&lt;10; i++) ｛
+        bar( i * 2 );
+    ｝ 
+｝
+
+foo();</code></pre>
+<p>执行上面这段代码，会发生什么事情？是可怕的无限循环！因为 i = 3修改了i的值，导致循环无法正确结束。</p>
+<p>所以要避免这种情况发生，就要记得在使用局部变量前，一定要声明它，如下所示：</p>
+<pre><code>function foo() ｛ 
+    function bar(a) ｛
+        var i = 3;
+        console.log( a + i ); 
+    ｝
+
+    for (var i=0; i&lt;10; i++) ｛
+        bar( i * 2 );
+    ｝ 
+｝
+
+foo();</code></pre>
+<h3 id="匿名和具名函数的区别"><a href="#匿名和具名函数的区别" class="headerlink" title="匿名和具名函数的区别"></a>匿名和具名函数的区别</h3><p>看如下两段代码的区别在哪里：</p>
+<pre><code>setTimeout( function() ｛ 
+    console.log("I waited 1 second!");
+｝, 1000 );
+
+setTimeout( function timeoutHandler() ｛ 
+    console.log( "I waited 1 second!" );
+｝, 1000 );</code></pre>
+<p>考虑匿名函数的缺点：</p>
 <ol>
-<li>增加人手</li>
-<li>调整计划</li>
-<li>削减任务</li>
+<li>匿名函数在栈追踪中不会显示出有意义的函数名，使得调试很困难。</li>
+<li>如果没有函数名，当函数需要引用自身时只能使用已经过期的arguments.callee引用， 比如在递归中。另一个函数需要引用自身的例子，是在事件触发后事件监听器需要解绑 自身。</li>
+<li>匿名函数省略了对于代码可读性/可理解性很重要的函数名。一个描述性的名称可以让 代码不言自明。</li>
 </ol>
-<h3 id="为什么我们需要项目周会？"><a href="#为什么我们需要项目周会？" class="headerlink" title="为什么我们需要项目周会？"></a>为什么我们需要项目周会？</h3><p><img src="http://cdn.bb-hire.cn/15973109771715.jpg"></p>
-<h3 id="开项目会议的时候，我们讨论什么？"><a href="#开项目会议的时候，我们讨论什么？" class="headerlink" title="开项目会议的时候，我们讨论什么？"></a>开项目会议的时候，我们讨论什么？</h3><ol>
-<li>每个人进度的检查与调整</li>
-<li>分析每个人遇到的困难，与分享成功经验</li>
-<li>对业务的不断梳理和加深理解</li>
-</ol>
-<h3 id="文档的重要性"><a href="#文档的重要性" class="headerlink" title="文档的重要性"></a>文档的重要性</h3><p><img src="http://cdn.bb-hire.cn/15973115367447.jpg"><br><img src="http://cdn.bb-hire.cn/15973115477814.jpg"></p>
-<blockquote>
-<p>开发计划和设计文档不是一次性的，而是需要一直维护的</p>
-</blockquote>
-<h3 id="人月估算和开发计划的区别"><a href="#人月估算和开发计划的区别" class="headerlink" title="人月估算和开发计划的区别"></a>人月估算和开发计划的区别</h3><p>对象不同。<br>人月估算是提供给上级的管理人员，用于掌握项目的资源使用量和项目最终上线时间。<br>开发计划是提供给具体的开发人员，用于开发人员确认自己的工作内容。<br>开发计划需要根据每个人的开发进度，做弹性调整，而不是一成不变。</p>
-<h3 id="防微杜渐"><a href="#防微杜渐" class="headerlink" title="防微杜渐"></a>防微杜渐</h3><p><img src="http://cdn.bb-hire.cn/15973146225039.jpg"></p>
-<h3 id="拥抱变化"><a href="#拥抱变化" class="headerlink" title="拥抱变化"></a>拥抱变化</h3><p>以前的开发<br><img src="http://cdn.bb-hire.cn/15973148796592.jpg"><br><img src="http://cdn.bb-hire.cn/15973150680480.jpg"><br><img src="http://cdn.bb-hire.cn/15973150809413.jpg"><br><img src="http://cdn.bb-hire.cn/15973150508232.jpg"><br>现在的开发<br><img src="http://cdn.bb-hire.cn/15973150140260.jpg"></p>
+<p>解决方案：给函数表达式指定一个函数名可以有效解决以上问题。始终给函数表达式命名是一个最佳实践</p>
+<h3 id="用let而不是var"><a href="#用let而不是var" class="headerlink" title="用let而不是var"></a>用let而不是var</h3><p>考虑如下代码：</p>
+<pre><code>var foo = true;
+if (foo) ｛
+    var bar = foo * 2;
+    bar = something( bar ); 
+    console.log( bar );
+｝</code></pre>
+<p>当在if的代码块中定义了变量bar，bar随后可以在if语句块外也能够被调用，这样就污染了整个函数环境，而这是我们不想看到的。而用了let就可以避免这一点。</p>
+<pre><code>var foo = true;
+if (foo) ｛
+    let bar = foo * 2;
+    bar = something( bar ); 
+    console.log( bar );
+｝
+
+console.log( bar ); // ReferenceError</code></pre>
+<h3 id="理解提升"><a href="#理解提升" class="headerlink" title="理解提升"></a>理解提升</h3><p>考虑如下代码：</p>
+<pre><code>a = 2;
+
+var a; 
+
+console.log( a );</code></pre>
+<p>编译器对声明提升后，实际执行的代码：</p>
+<pre><code>var a;
+
+a = 2; 
+
+console.log( a );</code></pre>
+<p>试着说如下代码执行结果吧：</p>
+<pre><code>console.log( a ); 
+
+var a = 2;</code></pre>
+<p>它的实际执行代码如下：</p>
+<pre><code>var a; 
+
+console.log( a ); 
+
+a = 2;</code></pre>
+<p>所以对JS而言，要记住：先有蛋(声明)，后有鸡(赋值)。</p>
+<p>我们习惯将var a = 2;看作一个声明，而实际上JavaScript引擎并不这么认为。它将var a<br>和 a = 2 当作两个单独的声明，第一个是编译阶段的任务，而第二个则是执行阶段的任务。</p>
+<p>这意味着无论作用域中的声明出现在什么地方，都将在代码本身被执行前首先进行处理。 可以将这个过程形象地想象成所有的声明(变量和函数)都会被“移动”到各自作用域的 最顶端，这个过程被称为提升。</p>
+<h3 id="理解闭包"><a href="#理解闭包" class="headerlink" title="理解闭包"></a>理解闭包</h3><p>考虑如下代码的最终输出是什么：</p>
+<pre><code>for (var i=1; i&lt;=5; i++) ｛ 
+    setTimeout( function timer() ｛
+        console.log( i ); 
+    ｝, i*1000 );
+｝</code></pre>
+<p>每秒输出6，而不是设想中的每秒输出1、2…5，因为闭包指向的都是同一个共有变量。想一下，代码要怎么改？</p>
+<pre><code>for (var i=1; i&lt;=5; i++) ｛ 
+    (function(result) ｛
+        setTimeout( function timer() ｛
+            console.log( result ); 
+        ｝, result*1000 );
+    ｝)(i);
+｝</code></pre>
+<p>答案是利用IIFE技术，把i作为函数的参数传递，从而生成一个新的作用域，把每次迭代的i的值封闭在新的作用域内。</p>
+<p>更好的做法，利用let：</p>
+<pre><code>for (let i=1; i&lt;=5; i++) ｛ 
+    setTimeout( function timer() ｛
+        console.log( i ); 
+    ｝, i*1000 );
+｝</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -561,7 +681,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://lovelywindy.club/2020/08/14/xiang-mu-guan-li-he-ren-yue-shen-hua/">http://lovelywindy.club/2020/08/14/xiang-mu-guan-li-he-ren-yue-shen-hua/</a>
+                    <a href="http://lovelywindy.club/2020/09/04/jie-gou-zai-zu-he-ni-bu-zhi-dao-de-javascript-yi/">http://lovelywindy.club/2020/09/04/jie-gou-zai-zu-he-ni-bu-zhi-dao-de-javascript-yi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -599,12 +719,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%A1%E7%90%86/">
-                                    <span class="chip bg-color">管理</span>
-                                </a>
-                            
                                 <a href="/tags/%E8%AF%BB%E4%B9%A6/">
                                     <span class="chip bg-color">读书</span>
+                                </a>
+                            
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
                                 </a>
                             
                         </div>
@@ -646,9 +766,63 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2020/09/04/jie-gou-zai-zu-he-ni-bu-zhi-dao-de-javascript-yi/">
+                    <div class="card-image">
+                        
+                        <img src="http://cdn.bb-hire.cn/15991970712619.jpg" class="responsive-img" alt="解构再组合 - 「你不知道的JavaScript」（一）">
+                        
+                        <span class="card-title">解构再组合 - 「你不知道的JavaScript」（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            解构再组合 - 「你不知道的JavaScript」（一）大纲
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AF%BB%E4%B9%A6/">
+                        <span class="chip bg-color">读书</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/08/24/jie-du-java-by-comparison-become-a-java-craftsman-in-70-examples/">
                     <div class="card-image">
@@ -665,9 +839,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -689,59 +863,6 @@
                     
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/08/14/xiang-mu-guan-li-he-ren-yue-shen-hua/">
-                    <div class="card-image">
-                        
-                        <img src="http://cdn.bb-hire.cn/15973897922330.jpg" class="responsive-img" alt="项目管理和「人月神话」">
-                        
-                        <span class="card-title">项目管理和「人月神话」</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            结合「人月神话」这本书，总结在管理中经验（大纲）
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%A1%E7%90%86/" class="post-category">
-                                    管理
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%A1%E7%90%86/">
-                        <span class="chip bg-color">管理</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%AF%BB%E4%B9%A6/">
-                        <span class="chip bg-color">读书</span>
                     </a>
                     
                 </div>
