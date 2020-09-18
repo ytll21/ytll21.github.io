@@ -467,21 +467,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-09-04
+                    2020-09-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    8 Min
                 </div>
                 
 
@@ -638,7 +638,149 @@ a = 2;</code></pre>
         console.log( i ); 
     ｝, i*1000 );
 ｝</code></pre>
-<script>
+<h3 id="this-this-this"><a href="#this-this-this" class="headerlink" title="this, this, this"></a>this, this, this</h3><p>考虑如下代码的最终输出是什么：</p>
+<pre><code>function foo(num) ｛
+    console.log( "foo: " + num );
+
+    // 记录 foo 被调用的次数
+    this.count++; 
+｝
+
+foo.count = 0;
+
+var i;
+
+for (i=0; i&lt;10; i++) ｛ 
+    if (i &gt; 5) ｛
+        foo( i ); 
+    ｝
+｝
+
+console.log( foo.count );</code></pre>
+<p>是0，想想为什么？</p>
+<p>因为this指向的不是foo的count，它指向的是全局的count。为什么会这样？<strong>因为在JS中，this指向的对象，是在运行时通过上下文实时获取，而不是在编译期间决定的。</strong></p>
+<pre><code>function foo(num) ｛
+    console.log( "foo: " + num );
+
+    // 记录 foo 被调用的次数
+    this.count++; 
+｝
+
+foo.count = 0;
+
+var i;
+
+for (i=0; i&lt;10; i++) ｛ 
+    if (i &gt; 5) ｛
+        foo.call( foo, i ); 
+    ｝
+｝
+
+console.log( foo.count ); // 4</code></pre>
+<p>通过call方法传递foo自身作为上下文参数，我们就能成功将this指向到foo。</p>
+<h3 id="this的绑定规则"><a href="#this的绑定规则" class="headerlink" title="this的绑定规则"></a>this的绑定规则</h3><h4 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h4><pre><code>function foo() ｛ 
+    console.log( this.a );
+｝
+
+var a = 2; 
+
+foo(); // 2</code></pre>
+<p>可以看到，当调用this.a的时候，应用了this的默认绑定，此时的this指向的全局对象。</p>
+<p>那么我们怎么知道这里应用了默认绑定呢?可以通过分析调用位置来看看 foo() 是如何调用的。在代码中，foo() 是直接使用不带任何修饰的函数引用进行调用的，因此只能使用默认绑定，无法应用其他规则。</p>
+<h4 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h4><p>思考如下代码：</p>
+<pre><code>function foo() ｛ 
+    console.log( this.a );
+｝
+
+var obj = ｛ 
+    a: 2,
+    foo: foo 
+｝;
+
+obj.foo(); // 2</code></pre>
+<p>这和我们平时写的代码有点接近了。原理是当函数引用有上下文对象时，隐式绑定规则会把函数调用中的 this 绑定到这个上下文对象。</p>
+<p>对象属性引用链中只有最顶层或者说最后一层会影响调用位置。思考如下的代码，最终的输出结果是什么：</p>
+<pre><code>function foo() ｛ 
+    console.log( this.a );
+｝
+
+var obj2 = ｛ 
+    a: 42,
+    foo: foo 
+｝;
+
+var obj1 = ｛ 
+    a: 2,
+    obj2: obj2 
+｝;
+
+obj1.obj2.foo();</code></pre>
+<h5 id="隐式绑定的风险-隐式丢失"><a href="#隐式绑定的风险-隐式丢失" class="headerlink" title="隐式绑定的风险 - 隐式丢失"></a>隐式绑定的风险 - 隐式丢失</h5><p>思考下面的代码的最终输出:</p>
+<pre><code>function foo() ｛ 
+    console.log( this.a );
+｝
+
+function doFoo(fn) ｛
+    fn();
+｝
+
+var obj = ｛ 
+    a: 2,
+    foo: foo 
+｝;
+
+var a = "oops, global";
+
+doFoo( obj.foo );</code></pre>
+<p>参数传递其实就是一种隐式赋值，因此我们传入函数时也会被隐式赋值。因此实际上，代码最终引用的是 foo 函数本身，即一个不带任何修饰的函数调用，因此应用了默认绑定。</p>
+<h4 id="显式绑定"><a href="#显式绑定" class="headerlink" title="显式绑定"></a>显式绑定</h4><p>就像我们刚才看到的那样，在分析隐式绑定时，我们必须在一个对象内部包含一个指向函数的属性，并通过这个属性间接引用函数，从而把 this 间接(隐式)绑定到这个对象上。 </p>
+<p>那么如果我们不想在对象内部包含函数引用，而想在某个对象上强制调用函数，该怎么做呢?</p>
+<p>具体点说，可以使用函数的 call(..) 和 apply(..) 方法。</p>
+<pre><code>function foo() ｛ 
+    console.log( this.a );
+｝
+
+var obj = ｛ 
+    a:2
+｝;
+
+foo.call( obj ); // 2</code></pre>
+<p>可惜，显式绑定无法解决我们之前提出的丢失绑定问题。这种时候，可以用硬绑定。</p>
+<h5 id="硬绑定"><a href="#硬绑定" class="headerlink" title="硬绑定"></a>硬绑定</h5><pre><code>function foo(something) ｛ 
+     console.log( this.a, something ); 
+     return this.a + something;
+｝
+
+// 简单的辅助绑定函数 
+function bind(fn, obj) ｛
+    return function() ｛ 
+        return fn.apply(obj, arguments );
+    ｝; 
+｝
+
+var obj = ｛ 
+    a:2
+｝;
+
+var bar = bind( foo, obj );
+
+var b = bar( 3 ); // 2 3 
+console.log( b ); // 5</code></pre>
+<p>由于硬绑定是一种非常常用的模式，所以在 ES5 中提供了内置的方法 Function.prototype.bind，它的用法如下:</p>
+<pre><code>function foo(something) ｛ 
+    console.log( this.a, something ); 
+    return this.a + something;
+｝
+
+var obj = ｛ 
+    a:2
+｝;
+
+var bar = foo.bind( obj );
+
+var b = bar( 3 ); // 2 3 
+console.log( b ); // 5</code></pre>
+<h4 id="new绑定（略）"><a href="#new绑定（略）" class="headerlink" title="new绑定（略）"></a>new绑定（略）</h4><h4 id="箭头函数（略）"><a href="#箭头函数（略）" class="headerlink" title="箭头函数（略）"></a>箭头函数（略）</h4><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1015,7 +1157,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.6k</span>&nbsp;字
+                class="white-color">5.5k</span>&nbsp;字
             
             
             
