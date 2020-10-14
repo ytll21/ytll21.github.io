@@ -6,7 +6,7 @@
   <link href="http://lovelywindy.club/atom.xml" rel="self"/>
   
   <link href="http://lovelywindy.club/"/>
-  <updated>2020-09-18T08:07:45.988Z</updated>
+  <updated>2020-10-14T10:11:00.870Z</updated>
   <id>http://lovelywindy.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Substrate入门指南（一）</title>
+    <link href="http://lovelywindy.club/2020/10/14/substrate-ru-men-zhi-nan-yi/"/>
+    <id>http://lovelywindy.club/2020/10/14/substrate-ru-men-zhi-nan-yi/</id>
+    <published>2020-10-14T10:07:01.000Z</published>
+    <updated>2020-10-14T10:11:00.870Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Substrate入门指南（一）&quot;&gt;&lt;a href=&quot;#Substrate入门指南（一）&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="BlockChain" scheme="http://lovelywindy.club/categories/BlockChain/"/>
+    
+    
+    <category term="Substrate" scheme="http://lovelywindy.club/tags/Substrate/"/>
+    
+    <category term="BlockChain" scheme="http://lovelywindy.club/tags/BlockChain/"/>
+    
+  </entry>
   
   <entry>
     <title>解构再组合 - 「你不知道的JavaScript」（一）</title>
