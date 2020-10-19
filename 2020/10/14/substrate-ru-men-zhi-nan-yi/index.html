@@ -309,7 +309,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://cdn.bb-hire.cn/16026702322940.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://cdn.bb-hire.cn/16026705592894.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -474,7 +474,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.7k
+                    1.6k
                 </div>
                 
 
@@ -629,25 +629,25 @@ cargo build --release</code></pre>
 <p>config.js</p>
 <pre><code>export const default_endpoint = "wss://区块链地址";</code></pre>
 <p>connection.js</p>
-<pre><code>import &amp;#123; default_endpoint &amp;#125; from "./config.js";
+<pre><code>import ｛ default_endpoint ｝ from "./config.js";
 
 const endpoint = localStorage.getItem("endpoint");
-if (!endpoint || typeof endpoint !== "string" || endpoint.indexOf("ws") !== 0) &amp;#123;
+if (!endpoint || typeof endpoint !== "string" || endpoint.indexOf("ws") !== 0) ｛
 localStorage.setItem("endpoint", default_endpoint);
-&amp;#125;
+｝
 
-const &amp;#123; ApiPromise, WsProvider &amp;#125; = require("@polkadot/api");
+const ｛ ApiPromise, WsProvider ｝ = require("@polkadot/api");
 const wsProvider = new WsProvider(localStorage.getItem("endpoint"));
 
-let api = ApiPromise.create(&amp;#123;
+let api = ApiPromise.create(｛
 provider: wsProvider,
-types: &amp;#123;
+types: ｛
  // mapping the actual specified address format
  Address: 'AccountId',
  // mapping the lookup
  LookupSource: 'AccountId'
-&amp;#125;
-&amp;#125;);
+｝
+｝);
 
 export default api;</code></pre>
 </li>
@@ -657,25 +657,25 @@ export default api;</code></pre>
 </li>
 </ol>
 <pre><code>```
-export async function getBlockNumber(api) &amp;#123;
+export async function getBlockNumber(api) ｛
     const block = await api.rpc.chain.getBlock();
     return block.block.header.number.toNumber();
-&amp;#125;
+｝
 
-export async function getAccountInfo(api) &amp;#123;
+export async function getAccountInfo(api) ｛
     const ADDR = '5CB7ZJioWA1EBibJKoQbxkyCupnEB1oQ2MFrRFvDxFLqTVMa';
     const now = await api.query.timestamp.now();
 
     // Retrieve the account balance &amp; nonce via the system module
-    const &amp;#123; nonce, data: balance &amp;#125; = await api.query.system.account(ADDR);
+    const ｛ nonce, data: balance ｝ = await api.query.system.account(ADDR);
 
-    console.log(`$&amp;#123;now&amp;#125;: balance of $&amp;#123;balance.free&amp;#125; and a nonce of $&amp;#123;nonce&amp;#125;`);
+    console.log(`$｛now｝: balance of $｛balance.free｝ and a nonce of $｛nonce｝`);
 
     // Subscribe to balance changes for our account
-    const unsub = await api.query.system.account(ADDR, (&amp;#123; nonce, data: balance &amp;#125;) =&gt; &amp;#123;
-        console.log(`free balance is $&amp;#123;balance.free&amp;#125; with $&amp;#123;balance.reserved&amp;#125; reserved and a nonce of $&amp;#123;nonce&amp;#125;`);
-    &amp;#125;);
-&amp;#125;
+    const unsub = await api.query.system.account(ADDR, (｛ nonce, data: balance ｝) =&gt; ｛
+        console.log(`free balance is $｛balance.free｝ with $｛balance.reserved｝ reserved and a nonce of $｛nonce｝`);
+    ｝);
+｝
 ```
 
 6) 最后，我们可以在页面中直接调用接口，获取相应数据，例如
@@ -683,22 +683,22 @@ export async function getAccountInfo(api) &amp;#123;
 ```
 import api from "@/connection.js";
 
-import &amp;#123; getBlockNumber, getAccountInfo, getChainInfo &amp;#125; from "@/api/polkadot";
+import ｛ getBlockNumber, getAccountInfo, getChainInfo ｝ from "@/api/polkadot";
 
-export default &amp;#123;
+export default ｛
   name: 'Dashboard',
-  computed: &amp;#123;
+  computed: ｛
     ...mapGetters(['name'])
-  &amp;#125;,
-  created() &amp;#123;
-    api.then((api) =&gt; &amp;#123;
-      getBlockNumber(api).then((blockNumber) =&gt; &amp;#123;
+  ｝,
+  created() ｛
+    api.then((api) =&gt; ｛
+      getBlockNumber(api).then((blockNumber) =&gt; ｛
         this.blocknumber = blockNumber;
-      &amp;#125;);
+      ｝);
       getAccountInfo(api);
-    &amp;#125;);
-  &amp;#125;
-&amp;#125;
+    ｝);
+  ｝
+｝
 ```
 
 7) 关于详细的Substrate API介绍，可以查看[官网链接](https://polkadot.js.org/docs/api)</code></pre>
@@ -838,7 +838,7 @@ export default &amp;#123;
                 <a href="/2020/10/14/substrate-ru-men-zhi-nan-yi/">
                     <div class="card-image">
                         
-                        <img src="http://cdn.bb-hire.cn/16026702322940.jpg" class="responsive-img" alt="Substrate入门指南（一）">
+                        <img src="http://cdn.bb-hire.cn/16026705592894.jpg" class="responsive-img" alt="Substrate入门指南（一）">
                         
                         <span class="card-title">Substrate入门指南（一）</span>
                     </div>
@@ -1079,7 +1079,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.2k</span>&nbsp;字
+                class="white-color">7.1k</span>&nbsp;字
             
             
             
